@@ -1,4 +1,4 @@
-import Tool from "./tool.class.js";
+import {TOOL_LINE, TOOL_RECTANGLE, TOOL_CIRCLE, TOOL_TRIANGLE, TOOL_BUCKET, TOOL_PENCIL, TOOL_BRUSH, TOOL_ERASER} from './tools.js'
 
 document.querySelectorAll("[data-command").forEach(item => {
     item.addEventListener("click", e => {
@@ -14,15 +14,15 @@ document.querySelectorAll("[data-tool]").forEach(item => {
         let selectedTool = item.getAttribute("data-tool")
 
         switch(selectedTool){
-            case Tool.TOOL_LINE:
-            case Tool.TOOL_RECTANGLE:
-            case Tool.TOOL_TRIANGLE:
-            case Tool.TOOL_CIRCLE:
-            case Tool.TOOL_PENCIL:
+            case TOOL_LINE:
+            case TOOL_RECTANGLE:
+            case TOOL_TRIANGLE:
+            case TOOL_CIRCLE:
+            case TOOL_PENCIL:
                 document.querySelector(".for-lines").style.display = "block";
                 document.querySelector(".for-brush").style.display = "none";
                 break;
-            case Tool.TOOL_BRUSH:
+            case TOOL_BRUSH:
                 document.querySelector(".group.for-lines").style.display = "none";
                 document.querySelector(".group.for-brush").style.display = "block";
                 break;
