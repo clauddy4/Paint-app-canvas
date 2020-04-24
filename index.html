@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="style/main.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f2902cc2ca.js" crossorigin="anonymous"></script>
+    <title>Paint</title>
+</head>
+<body>
+
+    <div class="toolbox left">
+        <div class="group commands">
+            <div class="item" data-command="undo" title="Undo">
+                <i class="fas fa-undo"></i>
+            </div>
+            <div class="item" data-command="download" title="Download">
+                <i class="fas fa-download"></i>
+            </div>
+        </div>
+        <div class="group shapes">
+            <div class="item active line" data-tool="line" title="Line">
+                <i class="fas fa-slash"></i>
+            </div>
+            <div class="item" data-tool="rectangle" title="Rectangle">
+                <i class="far fa-square"></i>
+            </div>
+            <div class="item" data-tool="circle" title="Circle">
+                <i class="far fa-circle"></i>
+            </div>
+            <div class="item" data-tool="triangle" title="Triangle">
+                <i class="far fa-caret-square-up"></i>
+            </div>
+        </div>
+        <div class="group tools">
+            <div class="item" data-tool="pencil" title="Pencil">
+                <i class="fas fa-pencil-alt"></i>
+            </div>
+            <div class="item" data-tool="brush" title="Brush">
+                <i class="fas fa-paint-brush"></i>
+            </div>
+            <div class="item" data-tool="bucket" title="Bucket">
+                <i class="fas fa-fill-drip"></i>
+            </div>
+            <div class="item" data-tool="eraser" title="Eraser">
+                <i class="fas fa-eraser"></i>
+            </div>
+        </div>
+
+        <div class="group line-widths">
+            <div class="item active" data-line-width="1" title="1 Pixel">
+                <div class="line-width" style="width:1px; height:1px;"></div>
+            </div>
+            <div class="item" data-line-width="2" title="2 Pixel">
+                <div class="line-width" style="width:2px; height:2px;"></div>
+            </div>
+            <div class="item" data-line-width="3" title="3 Pixel">
+                <div class="line-width" style="width:3px; height:3px;"></div>
+            </div>
+            <div class="item" data-line-width="4" title="4 Pixel">
+                <div class="line-width" style="width:4px; height:4px;"></div>
+            </div>
+            <div class="item" data-line-width="5" title="5 Pixel">
+                <div class="line-width" style="width:5px; height:5px;"></div>
+            </div>
+            <div class="item" data-line-width="6" title="6 Pixel">
+                <div class="line-width" style="width:6px; height:6px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <canvas id="canvas" class="canvas" width="640" height="480"></canvas>
+
+    <div class="toolbox right">
+        <div class="group swatches">
+            <div class="item" data-color="#ffffff">
+                <div class="swatch" style="background-color: #ffffff;"></div>
+            </div>
+            <div class="item" data-color="#b3b3b3">
+                <div class="swatch" style="background-color: #b3b3b3;"></div>
+            </div>
+            <div class="item" data-color="#595959">
+                <div class="swatch" style="background-color: #595959;"></div>
+            </div>
+            <div class="item active" data-color="#000000">
+                <div class="swatch" style="background-color: #000000;"></div>
+            </div>
+            <div class="item" data-color="#5C1F1F">
+                <div class="swatch" style="background-color: #5C1F1F;"></div>
+            </div>
+            <div class="item" data-color="#BF6767">
+                <div class="swatch" style="background-color: #BF6767;"></div>
+            </div>
+            <div class="item" data-color="#FB6913">
+                <div class="swatch" style="background-color: #FB6913;"></div>
+            </div>
+            <div class="item" data-color="#FDCC51">
+                <div class="swatch" style="background-color: #FDCC51;"></div>
+            </div>
+            <div class="item" data-color="#D8F84F">
+                <div class="swatch" style="background-color: #D8F84F;"></div>
+            </div>
+            <div class="item" data-color="#046363">
+                <div class="swatch" style="background-color: #046363;"></div>
+            </div>
+            <div class="item" data-color="#4B9DD2">
+                <div class="swatch" style="background-color: #4B9DD2;"></div>
+            </div>
+            <div class="item" data-color="#230A71">
+                <div class="swatch" style="background-color: #230A71;"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
