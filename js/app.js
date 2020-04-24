@@ -1,4 +1,9 @@
-import {TOOL_LINE, TOOL_RECTANGLE, TOOL_CIRCLE, TOOL_TRIANGLE, TOOL_BUCKET, TOOL_PENCIL, TOOL_BRUSH, TOOL_ERASER} from './tools.js'
+import Paint from "./paint.class.js";
+import {TOOL_LINE, TOOL_RECTANGLE, TOOL_CIRCLE, TOOL_TRIANGLE, TOOL_PENCIL, TOOL_BRUSH} from './tools.js'
+
+var paint = new Paint("canvas");
+paint.activeTool = TOOL_LINE;
+paint.init();
 
 document.querySelectorAll("[data-command").forEach(item => {
     item.addEventListener("click", e => {
@@ -11,7 +16,8 @@ document.querySelectorAll("[data-tool]").forEach(item => {
         document.querySelector("[data-tool].active").classList.toggle("active");
         item.classList.toggle("active");
 
-        let selectedTool = item.getAttribute("data-tool")
+        let selectedTool = item.getAttribute("data-tool");
+        paint.activeTool = selectedTool;
 
         switch(selectedTool){
             case TOOL_LINE:
