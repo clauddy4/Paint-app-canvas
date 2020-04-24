@@ -42,19 +42,21 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #e0e0e0;
+    background-color: #ffffff;
 }
 
 .line {
     font-size: 18px;
 }
 
-.line-widths .item {
+.line-widths .item,
+.brush-widths .item {
     position: relative;
     height: 20px;
 }
 
-.line-width {
+.line-width,
+.brush-width {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -66,5 +68,4 @@ body {
 .swatch {
     width: 100%;
     height: 100%;
-
 }
