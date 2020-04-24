@@ -1,4 +1,4 @@
-import Tool from "./tool.class";
+import Tool from "./tool.class.js";
 
 document.querySelectorAll("[data-command").forEach(item => {
     item.addEventListener("click", e => {
@@ -27,7 +27,7 @@ document.querySelectorAll("[data-tool]").forEach(item => {
                 document.querySelector(".group.for-brush").style.display = "block";
                 break;
             default:
-                document.querySelector(".group.for-shapes").style.display = "none";
+                document.querySelector(".group.for-brush").style.display = "none";
                 document.querySelector(".group.for-lines").style.display = "none";
         }
     });
