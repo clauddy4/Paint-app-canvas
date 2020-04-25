@@ -1,6 +1,6 @@
-import Point from "./point.model.js";
-import {TOOL_LINE, TOOL_RECTANGLE, TOOL_CIRCLE, TOOL_TRIANGLE, TOOL_PENCIL, TOOL_BRUSH} from './tools.js';
+import {TOOL_LINE, TOOL_RECTANGLE, TOOL_CIRCLE, TOOL_TRIANGLE, TOOL_PENCIL, TOOL_BRUSH, TOOL_BUCKET} from './tools.js';
 import {getMouseCoordinates, findDistance} from '../utils/utils.js';
+import Fill from "./fill.class.js";
 
 export default class Paint {
 
@@ -42,6 +42,8 @@ export default class Paint {
         if (this.tool == TOOL_PENCIL || this.tool == TOOL_BRUSH) {
             this.context.beginPath();
             this.context.moveTo(this.startPosition.x, this.startPosition.y);
+        } else if (this.tool == TOOL_BUCKET) {
+            new Fill(this.canvas, this.startPosition, this.color);
         }
     }
 
