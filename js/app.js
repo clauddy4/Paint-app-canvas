@@ -3,6 +3,9 @@ import {TOOL_LINE, TOOL_RECTANGLE, TOOL_CIRCLE, TOOL_TRIANGLE, TOOL_PENCIL, TOOL
 
 var paint = new Paint("canvas");
 paint.activeTool = TOOL_LINE;
+paint.lineWidth = 1;
+paint.brushSize = 4;
+paint.selectedColor = "#000000";
 paint.init();
 
 document.querySelectorAll("[data-command").forEach(item => {
@@ -39,10 +42,22 @@ document.querySelectorAll("[data-tool]").forEach(item => {
     });
 });
 
-document.querySelectorAll("[data-line-width").forEach(item => {
+document.querySelectorAll("[data-line-width]").forEach(item => {
     item.addEventListener("click", e => {
         document.querySelector("[data-line-width].active").classList.toggle("active");
         item.classList.toggle("active");
+
+        paint.lineWidth = item.getAttribute("data-line-width");
+
+    });
+});
+
+document.querySelectorAll("[data-brush-size]").forEach(item => {
+    item.addEventListener("click", e => {
+        document.querySelector("[data-brush-size].active").classList.toggle("active");
+        item.classList.toggle("active");
+
+        paint.brushSize = item.getAttribute("data-brush-size");
     });
 });
 
@@ -50,5 +65,8 @@ document.querySelectorAll("[data-color").forEach(item => {
     item.addEventListener("click", e => {
         document.querySelector("[data-color].active").classList.toggle("active");
         item.classList.toggle("active");
+
+        let color = item.getAttribute("data-color");
+        paint.selectedColor = color;
     });
 });
