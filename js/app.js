@@ -1,5 +1,5 @@
 import Paint from "./paint.class.js";
-import {TOOL_LINE, TOOL_RECTANGLE, TOOL_CIRCLE, TOOL_TRIANGLE, TOOL_PENCIL, TOOL_BRUSH} from './tools.js'
+import {TOOL_LINE, TOOL_RECTANGLE, TOOL_CIRCLE, TOOL_TRIANGLE, TOOL_PENCIL, TOOL_BRUSH, TOOL_ERASER} from './tools.js'
 
 var paint = new Paint("canvas");
 paint.activeTool = TOOL_LINE;
@@ -32,6 +32,7 @@ document.querySelectorAll("[data-tool]").forEach(item => {
                 document.querySelector(".for-brush").style.display = "none";
                 break;
             case TOOL_BRUSH:
+            case TOOL_ERASER:
                 document.querySelector(".group.for-lines").style.display = "none";
                 document.querySelector(".group.for-brush").style.display = "block";
                 break;

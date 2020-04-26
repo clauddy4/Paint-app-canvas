@@ -1,4 +1,4 @@
-import {TOOL_LINE, TOOL_RECTANGLE, TOOL_CIRCLE, TOOL_TRIANGLE, TOOL_PENCIL, TOOL_BRUSH, TOOL_BUCKET} from './tools.js';
+import {TOOL_LINE, TOOL_RECTANGLE, TOOL_CIRCLE, TOOL_TRIANGLE, TOOL_PENCIL, TOOL_BRUSH, TOOL_BUCKET, TOOL_ERASER} from './tools.js';
 import {getMouseCoordinates, findDistance} from '../utils/utils.js';
 import Fill from "./fill.class.js";
 
@@ -44,6 +44,8 @@ export default class Paint {
             this.context.moveTo(this.startPosition.x, this.startPosition.y);
         } else if (this.tool == TOOL_BUCKET) {
             new Fill(this.canvas, this.startPosition, this.color);
+        } else if (this.tool == TOOL_ERASER) {
+            this.context.clearRect(this.startPosition.x, this.startPosition.y, this._brushSize, this._brushSize)
         }
     }
 
@@ -63,6 +65,8 @@ export default class Paint {
             case TOOL_BRUSH:
                 this.drawFreeLine(this._brushSize);
                 break;
+            case TOOL_ERASER:
+                this.context.clearRect(this.currentPosition.x, this.currentPosition.y, this._brushSize, this._brushSize)
             default:
                 break;
         }
