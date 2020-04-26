@@ -7,6 +7,8 @@ export default class Paint {
     constructor(canvasId) {
         this.canvas = document.getElementById(canvasId);
         this.context = canvas.getContext("2d")
+        this.undoStack = [];
+        this.undoLimit = 8;
     }
 
     set activeTool(tool) {
@@ -33,6 +35,9 @@ export default class Paint {
 
     onMouseDown(e) {
         this.saveData = this.context.getImageData(0, 0, this.canvas.clientWidth, this.canvas.height);
+
+        if (this.undoStack.length >= this.undoLimit) this.undoStack.shift();
+        this.undoStack.push(this.saveData);
 
         this.canvas.onmousemove = e => this.onMouseMove(e);
         document.onmouseup = e => this.onMouseUp(e);
@@ -105,5 +110,12 @@ export default class Paint {
         this.context.lineWidth = lineWidth;
         this.context.lineTo(this.currentPosition.x, this.currentPosition.y);
         this.context.stroke();
+    }
+
+    undo() {
+        if (this.undoStack.length > 0) {
+            this.context.putImageData(this.undoStack[this.undoStack.length - 1], 0, 0);
+            this.undoStack.pop();
+        }
     }
 }

@@ -10,7 +10,18 @@ paint.init();
 
 document.querySelectorAll("[data-command").forEach(item => {
     item.addEventListener("click", e => {
-        console.log(item.getAttribute("data-command"));
+        let command = item.getAttribute("data-command");
+        if (command === 'undo') {
+            paint.undo();
+        } else if (command === 'download'){
+            var canvas = document.getElementById('canvas');
+            var image = canvas.toDataURL('image/png', 1.0)
+                .replace('image/png', 'image/octet-stream');
+            var link = document.createElement("a");
+            link.download = "my-image.png";
+            link.href = image;
+            link.click();
+        }
     });
 });
 
